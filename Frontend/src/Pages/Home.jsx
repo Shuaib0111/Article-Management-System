@@ -11,11 +11,8 @@ const Home = () => {
   useEffect(() => {
     const getAllArticles = async () => {
       try {
-        let res = await axios.get('http://localhost:3000/article/get/allArticles', {
-          headers: {
-            Authorization: `Bearer ${userData.token}`,
-          }
-        });
+        let res = await axios.get('http://localhost:3000/article/get/allArticles'
+        );
         if (res.data.success) {
           setArticles(res.data.articles);
         }

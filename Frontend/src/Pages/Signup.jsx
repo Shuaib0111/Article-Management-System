@@ -34,7 +34,7 @@ const Signup = () => {
             }
         }
         catch(err){
-            alert(err.response.data.message);
+            alert(err.message);
         }
     }
 

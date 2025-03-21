@@ -1,25 +1,30 @@
 const mongoose = require('mongoose');
 
 const articleSchema = new mongoose.Schema({
-    title:{
-        type: String
+    title: {
+        type: String,
+        required: true,  
+        trim: true
     },
-    category:{
+    category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "categories"
+        ref: "categories",
+        required: true  
     },
-    description:{
-        type: String
+    description: {
+        type: String,
+        required: true  
     },
-    thumbnail:{
-        type: String
+    thumbnail: {
+        type: String,
     },
-    user:{
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "users"
+        ref: "users",
+        required: true  
     }
-});
+}, { timestamps: true });  
 
-const articleModel = mongoose.model("articles",articleSchema);
+const articleModel = mongoose.model("articles", articleSchema);
 
 module.exports = articleModel;

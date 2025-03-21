@@ -42,6 +42,14 @@ const Header = ({ userData, handleLogout }) => {
             >
               Add Category
             </Link>
+            {userData && (
+              <Link
+                to="/user-dashboard"
+                className="hover:text-gray-600 transition font-medium"   
+              >
+                Dashboard
+              </Link>
+            )}
           </div>
 
           {/* Always display the username */}
@@ -86,6 +94,14 @@ const Header = ({ userData, handleLogout }) => {
           >
             Add Category
           </Link>
+          {userData && (
+            <Link
+              to="/dashboard"
+              className="block px-4 hover:bg-gray-200 transition text-black font-medium"
+            >
+              Dashboard
+            </Link>
+          )}
           <div className="space-y-2">
             {!userData && (
               <>

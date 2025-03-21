@@ -8,6 +8,7 @@ import AddArticle from "./Pages/AddArticle";
 import AddCategory from "./Pages/AddCategory";
 import SingleArticle from "./Pages/SingleArticle";
 import PrivateRoute from "./Services/ProtectedRoute"; // Ensure you are using the correct path for PrivateRoute
+import UserDashboard from "./Pages/UserDashboard";
 
 function App() {
   // State to track user login status
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <>
-      {/* Pass userData and handlers as props to Header */}
+     
       <Header userData={userData} handleLogout={handleLogout} />
       <Routes>
         <Route
@@ -39,13 +40,14 @@ function App() {
           element={<Login handleLogin={handleLogin} />}
         />
         <Route path="/register" element={<Signup />} />
-
+        <Route path="/" element={<Home />} />
+        <Route path="/singleArticle/:id" element={<SingleArticle />} />
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/user-dashboard" element={<UserDashboard/>} />
           <Route path="/addArticle" element={<AddArticle />} />
           <Route path="/addCategory" element={<AddCategory />} />
-          <Route path="/singleArticle/:id" element={<SingleArticle />} />
+          
         </Route>
       </Routes>
     </>
