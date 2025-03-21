@@ -10,7 +10,7 @@ const UserDashboard = () => {
     });
 
     useEffect(() => {
-        if (!userData) return; // Prevent fetching if userData is null
+        if (!userData) return;
 
         const fetchUserArticles = async () => {
             try {
@@ -31,7 +31,7 @@ const UserDashboard = () => {
         };
 
         fetchUserArticles();
-    }, [userData]); // ✅ Run only when `userData` changes
+    }, [userData]); 
 
     const handleDelete = async (articleId) => {
         if (!window.confirm("Are you sure you want to delete this article?")) return;
